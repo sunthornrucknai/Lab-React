@@ -28,7 +28,6 @@ export default function WordCard(props){
         setState({...state, guess}) // set state เป็น state ใหม่ 
         //split
         let usingsplit = guess.split('');
-        //console.log ('thisline = ' + usingsplit[0])
         let sum1,sum2,sum3;
         let fin_sum = 24;
 
@@ -77,15 +76,17 @@ export default function WordCard(props){
             console.log('ผลลัพท์3 = ' + sum3)
         }
 
-        if(guess.length == state.word.length){ 
-            if(guess == state.word){
-            console.log('yeah!')
+        if (guess.length == state.word.length){
+            if(sum3.length == fin_sum.length){ //ถ้าตัวอักษรยาวเท่ากับของเดิมไหม
+            if(sum3 == fin_sum){ //ถ้าตัวอักษรเหมือนกับของเดิม
+            console.log('เย้!! คุณชนะ เกม24')
             setState({...state, guess: '', completed: true})
-            }else{
-                console.log('reset')
-                setState({...state, guess: '', attempt: state.attempt + 1})
-                }
-         }
+            }else{ //ถ้าไม่ ให้reset
+            console.log('คำตอบไม่ถูก, เริ่มเกมใหม่')
+            setState({...state, guess: '', attempt: state.attempt + 1})
+            }
+          } 
+        }
     }
  return (
  <div>
