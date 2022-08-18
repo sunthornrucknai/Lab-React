@@ -11,3 +11,21 @@
     color: red;
     background: pink;
    }
+
+   .box {
+    width: 250px;
+    height: 100px;
+    background-color: brown;
+   }
+
+   .head{
+    width: 250px;
+    height: 50px;
+    background-color:bisque
+   }
+
+   .para{
+    width: 900px;
+    height: 100px;
+    background-color:blueviolet
+   }
