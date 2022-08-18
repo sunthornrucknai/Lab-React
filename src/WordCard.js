@@ -22,10 +22,60 @@ export default function WordCard(props){
     const [state, setState] = useState(prepareStateFromWord(props.value))
 
     const activationHandler = c => { 
-        console.log(`${c} has been activated.`) 
+        console.log(`คุณเลือก ${c}`)
+        
+        let guess = state.guess + c //ค่ากดอะไรมาแล้ว
+        setState({...state, guess}) // set state เป็น state ใหม่ 
+        //split
+        let usingsplit = guess.split('');
+        //console.log ('thisline = ' + usingsplit[0])
+        let sum1,sum2,sum3;
+        let fin_sum = 24;
 
-        let guess = state.guess + c
-        setState({...state, guess})
+        //sum1
+            if (usingsplit[1] == '+'){
+                sum1 = parseInt(usingsplit[0]) + parseInt(usingsplit[2]);
+            }else if (usingsplit[1] == '-')
+            {
+                sum1 = parseInt(usingsplit[0] - usingsplit[2]);
+            }else if (usingsplit[1] == '*')
+            {
+                sum1 = parseInt(usingsplit[0] * usingsplit[2]);
+            }
+
+        //sum2
+            if (guess.length == 3){
+            console.log('ผลลัพท์ = ' + sum1)
+            }
+
+            if (usingsplit[3] == '+'){
+                sum2 = sum1 + parseInt(usingsplit[4])
+            }else if (usingsplit[3] == '-')
+            {
+                sum2 = sum1 - parseInt(usingsplit[4])
+            }else if (usingsplit[3] == '*')
+            {
+                sum2 = sum1 * parseInt(usingsplit[4])
+            }
+
+        if (guess.length == 5){
+            console.log('ผลลัพท์2 = ' + sum2)
+        }
+
+        //sum3
+             if (usingsplit[5] == '+'){
+                sum3 = sum2 + parseInt(usingsplit[6])
+            }else if (usingsplit[5] == '-')
+            {
+                sum3 = sum2 - parseInt(usingsplit[6])
+            }else if (usingsplit[5] == '*')
+            {
+                sum3 = sum2 * parseInt(usingsplit[6])
+            }
+
+        if (guess.length == 7){
+            console.log('ผลลัพท์3 = ' + sum3)
+        }
 
         if(guess.length == state.word.length){ 
             if(guess == state.word){
